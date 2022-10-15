@@ -14,4 +14,4 @@ go run .
 | GET | /ping | - | Simple ping request to check the server status |
 | GET | /peers | - | Returns list of active peers |
 | GET | /stream | id | Starts streaming of receiving messages by given id |
-| GET | /send | rec, msg | Sends given message to the receiver |
+| GET | /send | to, msg | Sends given message to the receiver |
