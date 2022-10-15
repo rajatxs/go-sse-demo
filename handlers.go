@@ -102,6 +102,8 @@ func sendMessage() http.HandlerFunc {
 			msg string
 		)
 
+		setCORS(w)
+
 		if r.URL.Query().Has("to") {
 			rec = r.URL.Query().Get("to")
 		} else {
@@ -116,8 +118,6 @@ func sendMessage() http.HandlerFunc {
 		} else {
 			msg = ""
 		}
-
-		setCORS(w)
 
 		if len(rec) > 0 && activePeers[rec] != nil {
 			log.Printf("sending message rec: %s, message: %s\n", rec, msg)
