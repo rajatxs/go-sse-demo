@@ -49,7 +49,9 @@ func startStreaming() http.HandlerFunc {
 		}
 
 		if len(id) == 0 {
-			sendResponse(w, 400, &ApiResponse{Message: "missing id query param"})
+			sendResponse(w, 400, &ApiResponse{
+				Message: "missing id query param",
+			})
 			return
 		}
 
@@ -64,6 +66,11 @@ func startStreaming() http.HandlerFunc {
 				Ch: make(chan string),
 			}
 			log.Printf("peer connected: %s\n", id)
+		} else {
+			sendResponse(w, 400, &ApiResponse{
+				Message: "connection limit exceeds",
+			})
+			return
 		}
 
 		flusher, _ = w.(http.Flusher)
