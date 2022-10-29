@@ -9,7 +9,7 @@ go run .
 ```
 
 ### 📃 API Endpoints
-| Mathod | Path | Query params | Summary |
+| Method | Path | Query params | Summary |
 | ------------ | ------------ | ------------ | ------------ |
 | GET | /ping | - | Simple ping request to check the server status |
 | GET | /peers | - | Returns list of active peers |
